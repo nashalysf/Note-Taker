@@ -10,34 +10,42 @@ module.exports = app => {
         var notes = JSON.parse(data);
     
 
-        app.get("/api/notes", function(req, res) {
+        app.get("/api/notes", (req, res) => {
             res.json(notes);
         });
 
-      
-        app.post("/api/notes", function(req, res) {
+        function findById(id, noteListItems) {
+            const result = noteListItems.filter(notes => notes.id === id)[0];
+            if (result) {
+                res.json(result);
+              } else {
+                res.send(404);
+              }
+          }
+        app.post("/api/notes", (req, res) => {
             let newNote = req.body;
             notes.push(newNote);
             updateDb();
-            return console.log("Added new note: "+newNote.title);
+            return console.log("Added new note: " + newNote.title);
         });
 
-        app.get("/api/notes/:id", function(req,res) {
-            res.json(notes[req.params.id]);
+        app.get("/api/notes/:id", (req, res) => {
+            const result = findById(req.params.id, notes);
+            res.json(result);
         });
 
-        app.delete("/api/notes/:id", function(req, res) {
+        app.delete("/api/notes/:id", (req, res) => {
             notes.splice(req.params.id, 1);
             updateDb();
-            console.log("Deleted note with id "+req.params.id);
+            console.log("Deleted note with id " + req.params.id);
         });
 
     
-        app.get('/notes', function(req,res) {
+        app.get('/notes', (req, res) => {
             res.sendFile(path.join(__dirname, "./public/notes.html"));
         });
         
-        app.get('*', function(req,res) {
+        app.get('*', (req, res) => {
             res.sendFile(path.join(__dirname, "./public/index.html"));
         });
 
