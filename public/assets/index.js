@@ -51,7 +51,7 @@ const deleteNote = (id) =>
   });
 
 const renderActiveNote = () => {
-  hide(saveNoteBtn);
+  show(saveNoteBtn);
 
   if (activeNote.id) {
     noteTitle.setAttribute('readonly', true);
@@ -135,7 +135,7 @@ const renderNoteList = async (notes) => {
     spanEl.innerText = text;
     spanEl.addEventListener('click', handleNoteView);
 
-    liEl.appendChild(spanEl);
+    liEl.append(spanEl);
 
     if (delBtn) {
       const delBtnEl = document.createElement('i');
@@ -148,7 +148,7 @@ const renderNoteList = async (notes) => {
       );
       delBtnEl.addEventListener('click', handleNoteDelete);
 
-      liEl.appendChild(delBtnEl);
+      liEl.append(delBtnEl);
     }
 
     return liEl;

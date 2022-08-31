@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const express = require('express');
 const app = express();
+
 module.exports = app => {
 
     fs.readFile("db/db.json","utf8", (err, data) => {
@@ -24,6 +25,12 @@ module.exports = app => {
               }
           }  
           
+
+        app.get("/api/notes/:id", (req, res) => {
+            const result = findById(req.params.id, notes);
+            res.json(result);
+        });
+
         app.post("/api/notes", (req, res) => {
             let newNote = req.body;
             newNote.id = notes.length.toString();
@@ -31,11 +38,6 @@ module.exports = app => {
             notes.push(newNote);
             updateDb();
             return console.log("Added new note: " + newNote.title);
-        });
-
-        app.get("/api/notes/:id", (req, res) => {
-            const result = findById(req.params.id, notes);
-            res.json(result);
         });
 
         app.delete("/api/notes/:id", (req, res) => {
