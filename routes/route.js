@@ -3,7 +3,7 @@ const path = require('path');
 
 module.exports = app => {
 
-    fs.readFile("/db.json","utf8", (err, data) => {
+    fs.readFile("/public/index.html","utf8", (err, data) => {
 
         if (err) throw err;
 
@@ -51,7 +51,7 @@ module.exports = app => {
         });
 
         function updateDb() {
-            fs.writeFile("db/db.json",JSON.stringify(notes,'\t'),err => {
+            fs.writeFile("/public/index.html",JSON.stringify(notes,'\t'),err => {
                 if (err) throw err;
                 return true;
             });
