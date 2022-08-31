@@ -1,13 +1,14 @@
 const fs = require('fs');
 const path = require('path');
-
+const express = require('express');
+const app = express();
 module.exports = app => {
 
     fs.readFile("db/db.json","utf8", (err, data) => {
 
         if (err) throw err;
 
-        var notes = JSON.parse(data);
+        var notes = [].concat(JSON.parse(data));
     
 
         app.get("/api/notes", (req, res) => {
@@ -22,8 +23,11 @@ module.exports = app => {
                 res.send(404);
               }
           }  
+          
         app.post("/api/notes", (req, res) => {
             let newNote = req.body;
+            newNote.id = notes.length.toString();
+            res.json(req.body);
             notes.push(newNote);
             updateDb();
             return console.log("Added new note: " + newNote.title);
