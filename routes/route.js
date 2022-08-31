@@ -3,7 +3,7 @@ const path = require('path');
 
 module.exports = app => {
 
-    fs.readFile("db/db.json","utf8", (err, data) => {
+    fs.readFile("/db.json","utf8", (err, data) => {
 
         if (err) throw err;
 
@@ -21,7 +21,7 @@ module.exports = app => {
               } else {
                 res.send(404);
               }
-          }
+          }  
         app.post("/api/notes", (req, res) => {
             let newNote = req.body;
             notes.push(newNote);
@@ -41,12 +41,13 @@ module.exports = app => {
         });
 
     
+
         app.get('/notes', (req, res) => {
-            res.sendFile(path.join(__dirname, "./public/notes.html"));
+            res.sendFile(path.join(__dirname, "../public/notes.html"));
         });
         
         app.get('*', (req, res) => {
-            res.sendFile(path.join(__dirname, "./public/index.html"));
+            res.sendFile(path.join(__dirname, "../public/index.html"));
         });
 
         function updateDb() {
