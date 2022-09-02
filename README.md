@@ -4,6 +4,6 @@
 * Node.js
 * Express.js
 ## Install:
-* Clone repo in your IDE : git clone git@github.com:nashalysf/Note-Taker.git
+* Clone repo in your IDE : `git clone git@github.com:nashalysf/Note-Taker.git`
 ## Run:
-* On command-line: npm install to install dependencies and use app locally with node server.js. To see the app in action go to http://localhost:3001 or [live on Heroku](https://note-taker-08.herokuapp.com/)
+* On command-line: `npm install` to install dependencies and use app locally with `node server.js`. To see the app in action go to `http://localhost:3001` or [live on Heroku](https://note-taker-08.herokuapp.com/)
