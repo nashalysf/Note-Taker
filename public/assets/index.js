@@ -51,7 +51,7 @@ const deleteNote = (id) =>
   });
 
 const renderActiveNote = () => {
-  show(saveNoteBtn);
+  hide(saveNoteBtn);
 
   if (activeNote.id) {
     noteTitle.setAttribute('readonly', true);
@@ -180,4 +180,5 @@ if (window.location.pathname === '/notes') {
   noteText.addEventListener('keyup', handleRenderSaveBtn);
 }
 
+renderActiveNote()
 getAndRenderNotes();

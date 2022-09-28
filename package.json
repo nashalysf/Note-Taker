@@ -4,14 +4,26 @@
   "description": "App for creating and managing tasks",
   "main": "server.js",
   "scripts": {
-    "devStart": "nodemon server.js"
+    "devStart": "nodemon server.js",
+    "start": "node server.js"
   },
   "author": "Nashalys Fernandez",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "mysql2": "^2.3.3",
+    "node": "^18.9.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.19"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nashalysf/Note-Taker.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/nashalysf/Note-Taker/issues"
+  },
+  "homepage": "https://github.com/nashalysf/Note-Taker#readme"
 }
