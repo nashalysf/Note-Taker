@@ -38,5 +38,5 @@ No tests are available at the moment. Feel free to contribute if you'd like to a
 ## Questions
 If you have any questions or need further assistance with the project, please don't hesitate to [contact me](mailto:naferi.zoe@gmail.com).
 
-**GitHub Repository:** [YourGitHubLink](https://github.com/https://github.com/nashalysf/Note-Taker)
+**GitHub Repository:** [nashalysf](https://github.com/https://github.com/nashalysf)
 
